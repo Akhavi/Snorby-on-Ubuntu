@@ -20,7 +20,7 @@ apt-get -y install percona-server-server percona-server-client libmysqlclient-de
 #install snorby deps
 apt-get -y install git-core gcc g++ build-essential libssl-dev libreadline5-dev zlib1g-dev linux-headers-generic libsqlite3-dev libxslt-dev libxml2-dev imagemagick libmagick9-dev git-core wkhtmltopdf
 
-#install situational deps (only if you need them)
+#install situational deps (only if you need it)
 apt-get -y install default-jre-headless
 
 #grab and install Ruby
@@ -50,6 +50,7 @@ cd snorby
 
 #let bundle do all the busy work
 bundle install
+
 
 #set up the database config
 #nano config/database.yml
