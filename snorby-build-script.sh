@@ -1,4 +1,8 @@
 #Snorby on Ubuntu Script
+# Add the user
+addgroup snorby
+adduser --ingroup snorby snorby 
+
 #Install preliminary deps
 apt-get -y install wget nano rsyslog dialog gnupg
 
@@ -13,6 +17,9 @@ echo "deb http://repo.percona.com/apt lucid main" > /etc/apt/sources.list.d/perc
 
 #update apt
 apt-get update
+
+# Make sure we're up to date before we start
+apt-get upgrade
 
 #install the packages we need
 apt-get -y install percona-server-server percona-server-client libmysqlclient-dev
@@ -36,6 +43,9 @@ source /etc/environment
 #hook up the symlinks
 ln -s /usr/local/ruby/bin/ruby /usr/local/bin/ruby
 ln -s /usr/local/ruby/bin/gem /usr/bin/gem
+
+# Make sure Gem is up to date
+gem update --system
 
 #Install the required gems
 gem install tzinfo builder memcache-client rack rack-test erubis mail text-format bundler thor i18n sqlite3
